@@ -12,6 +12,17 @@ body {
     overflow-x: hidden;
 }
 
+/* Fluid media and safe text wrapping */
+img, picture, video, canvas, svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    overflow-wrap: anywhere;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -37,6 +48,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .nav-logo h2 {
@@ -192,7 +204,7 @@ body {
 
 /* About Section */
 .about {
-    padding: 100px 0;
+    padding-block: clamp(60px, 8vw, 100px);
     background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
 }
 
@@ -249,8 +261,9 @@ body {
 }
 
 .image-placeholder {
-    width: 300px;
-    height: 300px;
+    width: min(300px, 100%);
+    height: auto;
+    aspect-ratio: 1 / 1;
     background: #e9ecef;
     border-radius: 20px;
     display: flex;
@@ -267,7 +280,7 @@ body {
 
 /* Products Section */
 .products {
-    padding: 100px 0;
+    padding-block: clamp(60px, 8vw, 100px);
 }
 
 .products-grid {
@@ -325,7 +338,7 @@ body {
 
 /* Gallery Section */
 .gallery {
-    padding: 100px 0;
+    padding-block: clamp(60px, 8vw, 100px);
     background: linear-gradient(135deg, #e0c3fc 0%, #9bb5ff 100%);
 }
 
@@ -347,7 +360,7 @@ body {
 }
 
 .gallery-placeholder {
-    height: 250px;
+    height: clamp(180px, 30vw, 250px);
     background: #e9ecef;
     display: flex;
     flex-direction: column;
@@ -363,7 +376,7 @@ body {
 
 /* Contact Section */
 .contact {
-    padding: 100px 0;
+    padding-block: clamp(60px, 8vw, 100px);
 }
 
 .contact-content {
@@ -501,6 +514,9 @@ body {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+    .nav-menu {
+        gap: 1.25rem;
+    }
     .hero-container {
         gap: 2rem;
     }
